@@ -1,0 +1,79 @@
+﻿@implements RonSijm.BlazorAspect.EventBased.SimpleLogging.Interfaces.ILogRendering
+
+@page "/LogDemo"
+
+<PageTitle>LogDemo</PageTitle>
+
+<h1>LogDemo</h1>
+
+<span>This Page demos ILogRendering.</span>
+<span>Check your console, a log line should have appeared.</span>
+
+@code
+{
+    protected override void OnAfterRender(bool firstRender)
+    {
+        Console.WriteLine($"[LogDemo.razor] - {nameof(OnAfterRender)}");
+        base.OnAfterRender(firstRender);
+    }
+
+    protected override Task OnAfterRenderAsync(bool firstRender)
+    {
+        Console.WriteLine($"[LogDemo.razor] - {nameof(OnAfterRenderAsync)}");
+        return base.OnAfterRenderAsync(firstRender);
+    }
+
+    protected override void OnInitialized()
+    {
+        Console.WriteLine($"[LogDemo.razor] - {nameof(OnInitialized)}");
+        base.OnInitialized();
+    }
+
+    protected override Task OnInitializedAsync()
+    {
+        Console.WriteLine($"[LogDemo.razor] - {nameof(OnInitializedAsync)}");
+        return base.OnInitializedAsync();
+    }
+
+    protected override void OnParametersSet()
+    {
+        Console.WriteLine($"[LogDemo.razor] - {nameof(OnParametersSet)}");
+        base.OnParametersSet();
+    }
+
+    protected override Task OnParametersSetAsync()
+    {
+        Console.WriteLine($"[LogDemo.razor] - {nameof(OnParametersSetAsync)}");
+        return base.OnParametersSetAsync();
+    }
+
+    public override Task SetParametersAsync(ParameterView parameters)
+    {
+        Console.WriteLine($"[LogDemo.razor] - {nameof(SetParametersAsync)}");
+        return base.SetParametersAsync(parameters);
+    }
+
+    protected override bool ShouldRender()
+    {
+        Console.WriteLine($"[LogDemo.razor] - {nameof(ShouldRender)}");
+        return base.ShouldRender();
+    }
+
+    public override string ToString()
+    {
+        Console.WriteLine($"[LogDemo.razor] - {nameof(ToString)}");
+        return base.ToString();
+    }
+
+    public override bool Equals(object obj)
+    {
+        Console.WriteLine($"[LogDemo.razor] - {nameof(Equals)}");
+        return base.Equals(obj);
+    }
+
+    public override int GetHashCode()
+    {
+        Console.WriteLine($"[LogDemo.razor] - {nameof(GetHashCode)}");
+        return base.GetHashCode();
+    }
+}

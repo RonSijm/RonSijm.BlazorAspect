@@ -1,0 +1,19 @@
+﻿@page "/counter"
+
+@inject IDispatcher Dispatcher
+
+<PageTitle>Counter</PageTitle>
+
+<CounterStateComponent />
+
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+@code {
+
+    private void IncrementCount()
+    {
+        var action = new IncrementCounterAction();
+        Dispatcher.Dispatch(action);
+    }
+}

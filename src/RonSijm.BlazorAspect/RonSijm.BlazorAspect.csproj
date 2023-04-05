@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+	<PropertyGroup>
+		<TargetFrameworks>net6.0;net7.0</TargetFrameworks>
+		<LangVersion>11</LangVersion>
+		<VersionPrefix>1.0.0</VersionPrefix>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<Title>RonSijm.BlazorAspect</Title>
+		<Authors>Ron Sijm</Authors>
+		<Company>Ron Sijm</Company>
+		<Description>A C# Blazor library to assign Aspects to a page or component through assigning an interface.</Description>
+		<PackageProjectUrl>https://github.com/RonSijm/RonSijm.BlazorAspect</PackageProjectUrl>
+		<Configurations>Debug;Release</Configurations>
+
+		<PackageIcon>packaging\blazoraspect-package-logo.png</PackageIcon>
+		<PackageReadmeFile>packaging\README.md</PackageReadmeFile>
+	</PropertyGroup>
+
+	<ItemGroup Condition="'$(TargetFramework)' == 'net7.0'">
+		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="7.*" />
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(TargetFramework)' == 'net6.0'">
+		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="6.*" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="..\..\packaging\blazoraspect-package-logo.png" Pack="true" PackagePath="packaging"/>
+		<None Include="..\..\README.md" Pack="true" PackagePath="packaging"/>
+	</ItemGroup>
+</Project>
