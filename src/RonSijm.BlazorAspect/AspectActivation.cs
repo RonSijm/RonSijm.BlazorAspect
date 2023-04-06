@@ -28,7 +28,7 @@ public sealed class AspectActivation : IComponentActivator
             throw new ArgumentNullException(nameof(componentType));
         }
 
-        Logger.LogDebug("Creating instance {componentType}", componentType);
+        Logger.LogTrace("Creating instance {componentType}", componentType);
 
         if (!typeof(IComponent).IsAssignableFrom(componentType))
         {
@@ -40,7 +40,7 @@ public sealed class AspectActivation : IComponentActivator
 
         if (instance is not ComponentBase component)
         {
-            Logger.LogDebug("Type {type} is not ComponentBase, so not attempting to applying any extra behavior", componentType);
+            Logger.LogTrace("Type {type} is not ComponentBase, so not attempting to applying any extra behavior", componentType);
             return instance;
         }
 

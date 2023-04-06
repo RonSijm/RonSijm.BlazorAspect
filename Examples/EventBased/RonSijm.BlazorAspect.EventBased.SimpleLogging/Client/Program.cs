@@ -14,9 +14,9 @@ public class Program
         builder.RootComponents.Add<HeadOutlet>("head::after");
 
         builder.Services.AddScoped(_ => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
-        //builder.Logging.SetMinimumLevel(LogLevel.Trace);
 
-        builder.Logging.AddFilter("RonSijm.BlazorAspect.AspectActivation", LogLevel.Trace);
+        builder.Logging.AddFilter("*", LogLevel.None);
+        builder.Logging.AddFilter("RonSijm.BlazorAspect.AspectActivation", LogLevel.Debug);
         var application = builder.Build();
 
         application.Services.EnableComponentResolveLogging();
