@@ -48,11 +48,20 @@ public class Program
 }
 ````
 
-`AssignableFrom` is expected to be the most common use-case, though you can also use your own type condition.
+`WhenAssignableFrom` is expected to be the most common use-case, you can also use `WhenHasAttribute` to use attributes instead of interfaces.  
+
+Then you simply add the line:  
+`builder.Services.WhenHasAttribute(typeof(LoggingAttribute)).UseAspect(component => LogRenderingAction.Log(component));`
+
+you can also use your own type condition   :
 
 For example:
 
 `builder.Services.WhenType(x => x.IsAssignableFrom(typeof(ILogRendering))).UseAspect(component => LogRenderingAction.Log(component));`
+
+or even:  
+
+`builder.Services.WhenType(x => x != null)).UseAspect(component => LogRenderingAction.Log(component));`
 
 # To enable logging:
 

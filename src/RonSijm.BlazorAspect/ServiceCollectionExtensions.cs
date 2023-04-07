@@ -23,6 +23,12 @@ public static class ServiceCollectionExtensions
         return WhenType(services, criteria);
     }
 
+    public static Func<Type, bool> WhenHasAttribute(this IServiceCollection services, Type type)
+    {
+        var criteria = new Func<Type, bool>(component => Attribute.GetCustomAttribute(component, type) != null);
+        return WhenType(services, criteria);
+    }
+
     public static IServiceProvider EnableComponentResolveLogging(this IServiceProvider services)
     {
         var logger = services.GetRequiredService<ILogger<AspectActivation>>();
